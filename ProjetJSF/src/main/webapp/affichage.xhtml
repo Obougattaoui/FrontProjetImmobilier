@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Content</title>
+<link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+	<div>
+		<h:dataTable value="#{etudiant.etudiants}" var="et">
+			<f:facet name="header">Informations Etudiant</f:facet>
+			<h:column>
+				<f:facet name="header">CNE</f:facet>
+				#{etudiant.cne}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nom</f:facet>
+				#{etudiant.nom}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Prénom</f:facet>
+				#{etudiant.prenom}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Ville</f:facet>
+				#{etudiant.ville}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Date de naissance</f:facet>
+				#{etudiant.dateN}
+			</h:column>
+			<h:column>
+				<f:facet name="header">CNE</f:facet>
+				#{etudiant.cne}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Bourse</f:facet>
+				#{etudiant.bourse}
+			</h:column>
+		</h:dataTable>
+	</div>
+</body>
+</html>

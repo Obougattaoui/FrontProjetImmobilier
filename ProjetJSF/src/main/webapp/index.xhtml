@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+	<div>
+		<h:form>
+			<h3>Gestion des étudiants</h3>
+			<h:message for="cne" style="color:red"></h:message>
+			<br />
+			<h:message for="ville" style="color:red"></h:message>
+			<br />
+			<h:message for="bourse" style="color:red"></h:message>
+			<br />
+			<h:message for="dateN" style="color:red"></h:message>
+			<br />
+			<h:message for="name" style="color:red"></h:message>
+			<br />
+			<h:message for="prenom" style="color:red"></h:message>
+			<h:panelGrid columns="2">
+				<h:outputLabel for="cne">CNE:</h:outputLabel>
+				<h:inputText id="cne" value="#{etudiant.cne}" required="true" requiredMessage="La saisie du CNE est obligatoire !" validatorMessage="Le CNE doit avoir au minimum 6 nombres">
+					<f:validateLength minimum="6"></f:validateLength>
+				</h:inputText>
+				
+				<h:outputLabel for="name">Name: </h:outputLabel>
+				<h:inputText id="name" value="#{etudiant.nom}" required="true" requiredMessage="La saisie du NOM est obligatoire !"></h:inputText>
+				
+				<h:outputLabel for="prenom">Prenom:</h:outputLabel>
+				<h:inputText id="prenom" value="#{etudiant.prenom}" required="true" requiredMessage="La saisie du Prénom est obligatoire !"></h:inputText>
+				
+				<h:outputLabel for="ville">Ville:</h:outputLabel>
+				<h:inputText id="ville" value="#{etudiant.ville}" validatorMessage="La ville doit avoir au maximum 10 caractéres">
+					<f:validateLength minimum="1" maximum="50"></f:validateLength>
+				</h:inputText>
+				
+				<h:outputLabel for="dateN">Date de naissance:</h:outputLabel>
+				<h:inputText id="dateN" value="#{etudiant.dateN}" type="date" converterMessage="Please provide date of birth in dd/mm/yyyy format">
+					<f:convertDateTime pattern="dd/mm/yyyy" />  
+				</h:inputText>
+				
+				<h:outputLabel for="bourse">Bourse:</h:outputLabel>
+				<h:inputText id="bourse" value="#{etudiant.bourse}" validatorMessage="La bourse doit avoir au maximum 1000 DH et au minimum 700DH">
+					<f:validateDoubleRange minimum="700" maximum="1000"></f:validateDoubleRange>
+				</h:inputText>
+				
+				<h:commandButton action="#{etudiant.ajouter}" value="Valider"></h:commandButton>
+			</h:panelGrid>
+		</h:form>
+	</div>
+</body>
+</html>
